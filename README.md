@@ -1,12 +1,10 @@
-# ASV Wave Simulation
-This package provides a Gazebo simulation of an autonomous surface vehicle (ASV) operating in a wave field, based on this repository: https://github.com/srmainwaring/asv_wave_sim.
+# Shoreline Wave Simulation
+This package provides a Gazebo simulation of an autonomous surface vehicle (ASV) operating in a wave field, based on this repository's wave physics/graphics: https://github.com/srmainwaring/asv_wave_sim.
 
 ## Requirements
 
 - Ubuntu 22.04 (Jammy)
 - Gazebo Sim, version 7.1.0 (Garden)
-
-
 
 ## Installation
 
@@ -20,16 +18,16 @@ sudo apt-get install libcgal-dev libfftw3-dev
 ### Create a workspace
 
 ```bash
-mkdir -p gz_ws/src  # gz_ws is just an example, you can name it whatever you want
+mkdir -p shoreline_ws/src  # shoreline_ws is just an example, you can name it whatever you want
 ```
 
 ### Clone and build the package
 
-Clone the `asv_wave_sim` repository:
+Clone the `shoreline_sim` repository:
 
 ```bash
-cd ~/gz_ws/src
-git clone https://github.com/srmainwaring/asv_wave_sim.git
+cd ~/shoreline_ws/src
+git clone [https://github.com/srmainwaring/asv_wave_sim.git](https://github.com/mit-triton/shoreline_sim.git)
 ```
 
 Compile the package:
@@ -45,7 +43,7 @@ colcon build --merge-install
 ## Running the simulation
 In your workspace (where src, build, install, and log are), run the following commands:
 ```bash
-source src/asv_wave_sim/setup.sh
+source src/shoreline_sim/setup.sh
 gz sim beach_world.sdf
 ```
 
