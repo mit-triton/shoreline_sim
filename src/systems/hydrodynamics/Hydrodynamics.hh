@@ -39,7 +39,7 @@ class HydrodynamicsPrivate;
 ///
 /// /code
 /// <plugin name="gz::sim::systems::Hydrodynamics"
-///         filename="gz-waves1-hydrodynamics-system">
+///         filename="shoreline_sim-hydrodynamics-system">
 ///
 ///   <!-- Apply hydrodynamics to the entire model (default) -->
 ///   <enable>model_name</enable>

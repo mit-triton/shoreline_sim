@@ -436,7 +436,7 @@ void RenderEngineExtensionManagerPrivate::RegisterDefaultExtensions()
 
   // cppcheck-suppress unreadVariable
   // std::string libName = "gz-rendering-";
-  std::string libName = "gz-waves1-rendering-";
+  std::string libName = "shoreline_sim-rendering-";
 
   // cppcheck-suppress unusedVariable
   std::string extensionName;

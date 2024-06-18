@@ -3,11 +3,22 @@ from launch_ros.actions import Node
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
-from ament_index_python.packages import get_package_share_directory
-
+from ament_index_python.packages import get_package_share_directory, get_package_prefix, PackageNotFoundError
 
 def generate_launch_description():
     pkg_anchor_gazebo = get_package_share_directory('shoreline_sim')
+
+    try:
+        get_package_prefix('wamv_controller')
+    except PackageNotFoundError:
+        print("The 'wamv_controller' package was not found. Exiting.")
+        exit(1)
+
+    try:
+        get_package_prefix('protobuf_client')
+    except PackageNotFoundError:
+        print("The 'protobuf_client' package was not found. Exiting.")
+        exit(1)
 
     return LaunchDescription([
         IncludeLaunchDescription(

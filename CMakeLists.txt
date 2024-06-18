@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10.2)
 #============================================================================
 # Initialize the project
 #============================================================================
-project(gz-waves1 VERSION 1.0.0)
+project(shoreline_sim VERSION 1.0.0)
 
 #============================================================================
 # Find gz-cmake
@@ -223,3 +223,9 @@ install(DIRECTORY
   models
   worlds
   DESTINATION share/${PROJECT_NAME})
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
+ament_package()

@@ -1003,7 +1003,7 @@
       <max_thrust_cmd>2353.53383667818</max_thrust_cmd>
     </plugin>
     <plugin
-        filename="gz-waves1-hydrodynamics-system"
+        filename="shoreline_sim-hydrodynamics-system"
         name="gz::sim::systems::Hydrodynamics">
         <enable>wamv</enable>
         <hydrodynamics>
