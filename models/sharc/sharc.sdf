@@ -1,0 +1,70 @@
+<sdf version='1.10'>
+    <model name='sharc'>
+        <link name='base_link'>
+            <inertial>
+                <pose>0 0 0 0 0 0</pose>
+                <mass>180</mass>
+                <inertia>
+                <ixx>120</ixx>
+                <ixy>0</ixy>
+                <iyy>393</iyy>
+                <iyz>0</iyz>
+                <izz>446</izz>
+                </inertia>
+            </inertial>
+
+            <!-- Add correct collisions -->
+            <collision name='collision'>
+                <geometry>
+                <mesh>
+                    <uri>model://sharc/meshes/wam-v-base_collision_406.stl</uri>
+                </mesh>
+                </geometry>
+            </collision>
+            
+            <visual name='visual'>
+                <pose>0 0 -0.2 1.57 0 0</pose>
+                <geometry>
+                <mesh>
+                    <uri>model://sharc/meshes/sharc.stl</uri>
+                    <scale>0.01 0.01 0.01</scale>
+                </mesh>
+                </geometry>
+                <material>
+                <ambient>0.1 0.1 0.1 1</ambient>
+                <diffuse>0.1 0.12 0.1 1</diffuse>
+                <specular>0.1 0.1 0.1 1</specular>
+                </material>
+            </visual>
+            <sensor name='navsat' type='navsat'>
+                <always_on>true</always_on>
+                <update_rate>20</update_rate>
+            </sensor>
+        </link>
+        <plugin
+            filename="shoreline_sim-hydrodynamics-system"
+            name="gz::sim::systems::Hydrodynamics">
+            <enable>sharc</enable>
+            <hydrodynamics>
+            <damping_on>1</damping_on>
+            <viscous_drag_on>1</viscous_drag_on>
+            <pressure_drag_on>1</pressure_drag_on>
+            
+            <!-- Linear and Angular Damping -->
+            <cDampL1>1.0E-6</cDampL1>
+            <cDampL2>1.0E-6</cDampL2>
+            <cDampR1>1.0E-6</cDampR1>
+            <cDampR2>1.0E-6</cDampR2>
+            
+            <!-- 'Pressure' Drag -->
+            <cPDrag1>1.0E+2</cPDrag1>
+            <cPDrag2>1.0E+2</cPDrag2>
+            <fPDrag>0.4</fPDrag>
+            <cSDrag1>1.0E+2</cSDrag1>
+            <cSDrag2>1.0E+2</cSDrag2>
+            <fSDrag>0.4</fSDrag>
+            <vRDrag>1.0</vRDrag>
+            </hydrodynamics>
+        </plugin>
+    </model>
+</sdf>
