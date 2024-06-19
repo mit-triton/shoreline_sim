@@ -25,8 +25,8 @@ def generate_launch_description():
         Node(
             package='ros_gz_bridge',
             executable='parameter_bridge',
-            arguments=['/world/beach_world/model/wamv/model/wamv/model/wamv/link/wamv/imu_wamv_link/sensor/imu_wamv_sensor/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
-                       '/world/beach_world/model/wamv/model/wamv/model/wamv/link/wamv/gps_wamv_link/sensor/navsat/navsat@sensor_msgs/msg/NavSatFix@gz.msgs.NavSat',
+            arguments=['/world/beach_world/model/wamv/link/wamv/imu_wamv_link/sensor/imu_wamv_sensor/imu@sensor_msgs/msg/Imu@gz.msgs.IMU',
+                       '/world/beach_world/model/wamv/link/wamv/gps_wamv_link/sensor/navsat/navsat@sensor_msgs/msg/NavSatFix@gz.msgs.NavSat',
                        '/model/wamv/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry',
                        '/model/wamv/joint/left_engine_propeller_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double',
                        '/model/wamv/joint/right_engine_propeller_joint/cmd_thrust@std_msgs/msg/Float64@gz.msgs.Double',
@@ -39,9 +39,9 @@ def generate_launch_description():
                        '/world/beach_world/model/wamv/model/wamv/model/wamv/link/wamv/base_link/sensor/lidar_wamv_sensor/scan/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked',
                        ],
             remappings=[
-                ('/world/beach_world/model/wamv/model/wamv/model/wamv/link/wamv/imu_wamv_link/sensor/imu_wamv_sensor/imu',
+                ('/world/beach_world/model/wamv/link/wamv/imu_wamv_link/sensor/imu_wamv_sensor/imu',
                  '/wamv/sensors/imu/imu/data'),
-                ('/world/beach_world/model/wamv/model/wamv/model/wamv/link/wamv/gps_wamv_link/sensor/navsat/navsat',
+                ('/world/beach_world/model/wamv/link/wamv/gps_wamv_link/sensor/navsat/navsat',
                  '/wamv/sensors/gps/gps/fix'),
                 ('/model/wamv/joint/left_engine_propeller_joint/cmd_thrust',
                  '/wamv/thrusters/left/thrust'),
