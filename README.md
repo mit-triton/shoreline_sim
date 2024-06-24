@@ -44,9 +44,22 @@ colcon build --merge-install
 In your workspace (where src, build, install, and log are), run the following commands:
 ```bash
 source src/shoreline_sim/setup.sh
-gz sim beach_world.sdf
+ros2 launch shoreline_sim wamv_beach_launch.py
 ```
 
+### MOOS Connectivity (Optional)
+- Add protobuf_client_ros2 and protobuf_client_interfaces to the /src directory of the ROS 2 workspace.
+  - git clone https://github.com/mikedef/protobuf_client_ros2.git
+  - git clone https://github.com/mikedef/protobuf_client_interfaces.git
+- Install the `wamv_controller` package with `git clone https://github.com/mit-triton/wamv_controller.git` in the `src` directory of the ROS 2 workspace.
+- Download the MOOS-IVP-ROS2 bridge with `git clone https://github.com/mikedef/moos-ivp-gateway.git` and follow the instructions in the README.
+  - Run the build.sh script in the root of the repository, and add the path to the root to your ~/.bashrc
+- Download the MOOS-IvP missions with `git clone https://github.com/mit-triton/moos-ivp-triton-anchor`
+  - Run the build.sh script in the root of the repository, and add the path to the root to your ~/.bashrc
+- Run `source src/shoreline_sim/setup.sh` and `ros2 launch shoreline_sim moos_wamv_beach_launch.py`
+- In the `moos-ivp-triton-anchor/missions/hello_wamv` directory:
+  - Run `./launch_wamv.sh` and `./launch_shoreside.sh` scripts to start the MOOS-IvP missions.
+  - Run the Gazebo simulation with the start button in the Gazebo GUI.
 
 ## License
 
